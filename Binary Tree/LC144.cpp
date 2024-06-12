@@ -1,5 +1,7 @@
 // Given the root of a binary tree, return the preorder traversal of its nodes' values.
 
+
+//Iterative Approach
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -17,4 +19,22 @@ public:
         return ans;
     }
 };
+
+//Recursive approach
+class Solution {
+public:
+    void preOrder(TreeNode* root, vector<int> &ans) {
+        if(root == nullptr) return;
+        ans.push_back(root->val);
+        preOrder(root->left, ans);
+        preOrder(root->right, ans);
+    }
+
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        preOrder(root, ans);
+        return ans;
+    }
+};
+
 
